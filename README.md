@@ -447,7 +447,7 @@ Tmdb::Job.list
 * Movie.keywords(id) now returns an Array
 * Movie.alternative_titles(id) now returns an Array
 * Movie.releases(id) now returns an Array
-* Movie.trailers(id) removed for Movie.youtube_trailer and Movie.quicktime_trailers both returning Arrays
+* Movie.trailers(id) removed for Movie.youtube_trailers and Movie.quicktime_trailers both returning Arrays
 * Movie.translations(id) now returns an Array
 * Movie.credits(id) now returns an Array
 
