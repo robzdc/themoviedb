@@ -7,9 +7,9 @@ http_interactions:
       encoding: US-ASCII
       string: ''
     headers:
-      Content-Type:
-      - application/json
       Accept:
+      - application/json
+      Content-Type:
       - application/json
   response:
     status:
@@ -18,36 +18,26 @@ http_interactions:
     headers:
       Access-Control-Allow-Origin:
       - '*'
-      Age:
-      - '0'
       Cache-Control:
-      - public, max-age=86402
+      - public, max-age=21600
       Content-Type:
       - application/json;charset=utf-8
       Date:
-      - Fri, 20 Sep 2013 14:32:11 GMT
+      - Fri, 14 Feb 2014 09:13:09 GMT
       Etag:
       - '"3ee64f0847d5f8114b5631786c89dea0"'
       Server:
       - nginx
       Status:
       - 200 OK
-      Via:
-      - 1.1 varnish
-      X-Cache:
-      - MISS
       X-Memc:
       - HIT
       X-Memc-Age:
-      - '76174'
+      - '3243'
       X-Memc-Expires:
-      - '10228'
+      - '18357'
       X-Memc-Key:
       - 2019fd631de1869b5ea64ab03c9ed879
-      X-Varnish:
-      - '1297601564'
-      X-Varnish-Sid:
-      - tm-v-p-1100
       Content-Length:
       - '385'
       Connection:
@@ -65,5 +55,5 @@ http_interactions:
         dXIgUm9vbXMifSx7Imlzb18zMTY2XzEiOiJSVSIsInRpdGxlIjoi0KfQtdGC
         0YvRgNC1INC60L7QvNC90LDRgtGLIn1dfQ==
     http_version: 
-  recorded_at: Fri, 20 Sep 2013 14:32:10 GMT
+  recorded_at: Fri, 14 Feb 2014 09:13:10 GMT
 recorded_with: VCR 2.5.0

@@ -7,9 +7,9 @@ http_interactions:
       encoding: US-ASCII
       string: ''
     headers:
-      Content-Type:
-      - application/json
       Accept:
+      - application/json
+      Content-Type:
       - application/json
   response:
     status:
@@ -18,40 +18,32 @@ http_interactions:
     headers:
       Access-Control-Allow-Origin:
       - '*'
-      Age:
-      - '0'
       Cache-Control:
-      - public, max-age=86402
+      - public, max-age=0
       Content-Type:
       - application/json;charset=utf-8
       Date:
-      - Fri, 20 Sep 2013 14:35:34 GMT
+      - Fri, 14 Feb 2014 09:13:09 GMT
       Etag:
-      - '"1ae2c0416a67b4c1aac124c6315a6e3f"'
+      - '"15ac392194735fcd6b7236b38287b3da"'
+      Last-Modified:
+      - ''
       Server:
       - nginx
       Status:
       - 200 OK
       Vary:
       - Accept-Encoding
-      Via:
-      - 1.1 varnish
-      X-Cache:
-      - MISS
       X-Memc:
       - MISS
       X-Memc-Age:
       - '0'
       X-Memc-Expires:
-      - '86402'
+      - '0'
       X-Memc-Key:
       - 3b745b83c37f2cf51da7284c21cf2ad3
-      X-Varnish:
-      - '699584304'
-      X-Varnish-Sid:
-      - tm-v-p-1200
       Content-Length:
-      - '1183'
+      - '1836'
       Connection:
       - keep-alive
     body:
@@ -82,8 +74,22 @@ http_interactions:
         IjoxLCJpZCI6IjUxZjBkMmE4MTljMjk1NjA5MzFlNTU0ZCIsIml0ZW1fY291
         bnQiOjUsImlzb182MzlfMSI6ImVuIiwibmFtZSI6IlRhcmFudGlubyDDqXMg
         Um9kcmlndWV6IGZpbG1layIsInBvc3Rlcl9wYXRoIjoiL2RucTJuaXNyWjhC
-        TG1YMlpXSkJGSEVoOTQ1dy5qcGcifV0sInRvdGFsX3BhZ2VzIjoxLCJ0b3Rh
-        bF9yZXN1bHRzIjo2fQ==
+        TG1YMlpXSkJGSEVoOTQ1dy5qcGcifSx7ImRlc2NyaXB0aW9uIjoiTGlzdCBt
+        YWludGFpbmVkIGJ5IE1vdmllIENvbGxlY3Rpb24sIHRoZSBpT1MgYXBwLiIs
+        ImZhdm9yaXRlX2NvdW50IjoxLCJpZCI6IjUyM2M2ZGQxOWExMjE4MzNjMzNk
+        YWE5OCIsIml0ZW1fY291bnQiOjQ3NywiaXNvXzYzOV8xIjoiZW4iLCJuYW1l
+        IjoiTW92aWUgQ29sbGVjdGlvbiIsInBvc3Rlcl9wYXRoIjoiL2syWGZUREVQ
+        T2ZnZjdqMmtTVEdBVUZkMVFzNS5qcGcifSx7ImRlc2NyaXB0aW9uIjoiTGlz
+        dCBtYWludGFpbmVkIGJ5IE1vdmllIENvbGxlY3Rpb24sIHRoZSBpT1MgYXBw
+        LiIsImZhdm9yaXRlX2NvdW50IjoxLCJpZCI6IjUyYTBjODFlOWExMjE4Nzdj
+        YzE0ODc3NSIsIml0ZW1fY291bnQiOjI4LCJpc29fNjM5XzEiOiJlbiIsIm5h
+        bWUiOiJNb3ZpZSBDb2xsZWN0aW9uIiwicG9zdGVyX3BhdGgiOiIvZ0JIQnFz
+        Wmt5dDJBbnRka205bVJyRjY3eVhILmpwZyJ9LHsiZGVzY3JpcHRpb24iOiJM
+        aXN0IG1haW50YWluZWQgYnkgTW92aWUgQ29sbGVjdGlvbiwgdGhlIGlPUyBh
+        cHAuIiwiZmF2b3JpdGVfY291bnQiOjEsImlkIjoiNTI4MjgwMWI1MjkxNTc0
+        ZDk3MGU1ZDVhIiwiaXRlbV9jb3VudCI6MjkwLCJpc29fNjM5XzEiOiJlbiIs
+        Im5hbWUiOiJNb3ZpZSBDb2xsZWN0aW9uIiwicG9zdGVyX3BhdGgiOm51bGx9
+        XSwidG90YWxfcGFnZXMiOjEsInRvdGFsX3Jlc3VsdHMiOjl9
     http_version: 
-  recorded_at: Fri, 20 Sep 2013 14:35:34 GMT
+  recorded_at: Fri, 14 Feb 2014 09:13:10 GMT
 recorded_with: VCR 2.5.0

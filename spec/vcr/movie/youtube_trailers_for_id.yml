@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.themoviedb.org/3/movie/5/changes?api_key=8a221fc31fcdf12a8af827465574ffc9
+    uri: http://api.themoviedb.org/3/movie/5/trailers?api_key=8a221fc31fcdf12a8af827465574ffc9
     body:
       encoding: US-ASCII
       string: ''
@@ -17,34 +17,35 @@ http_interactions:
       message: OK
     headers:
       Access-Control-Allow-Origin:
-      - '*'
+      - ! '*'
       Cache-Control:
-      - public, max-age=300
+      - public, max-age=21600
       Content-Type:
       - application/json;charset=utf-8
       Date:
-      - Fri, 14 Feb 2014 09:13:10 GMT
+      - Fri, 21 Feb 2014 10:49:58 GMT
       Etag:
-      - '"6d13f62eca6c2c947237edd8984b9b62"'
+      - ! '"04fdcd3cc13af496b93938341b895979"'
       Server:
       - nginx
       Status:
       - 200 OK
       X-Memc:
-      - MISS, STORE
+      - HIT
       X-Memc-Age:
-      - '0'
+      - '10063'
       X-Memc-Expires:
-      - '300'
+      - '11537'
       X-Memc-Key:
-      - be739f74300cd7f5a83e6f48bf1351ba
+      - e25f2806e5038cfa9e02eed0c6e629a5
       Content-Length:
-      - '14'
+      - '187'
       Connection:
       - keep-alive
     body:
-      encoding: UTF-8
-      string: '{"changes":[]}'
+      encoding: US-ASCII
+      string: ! '{"id":5,"quicktime":[],"youtube":[{"name":"Trailer 1","size":"Standard","source":"Rieq_TR7cV0","type":"Trailer"},{"name":"Trailer
+        2","size":"HQ","source":"S_Pd2pGkq54","type":"Trailer"}]}'
     http_version: 
-  recorded_at: Fri, 14 Feb 2014 09:13:11 GMT
+  recorded_at: Fri, 21 Feb 2014 10:49:58 GMT
 recorded_with: VCR 2.5.0

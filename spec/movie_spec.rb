@@ -24,97 +24,103 @@ describe Tmdb::Movie do
 
     it "should return the latest movies" do
       VCR.use_cassette 'movie/return_latest_movie' do
-        @movie.latest.should be_true
+        @movie.latest.title.should eq("Somewhere Between Here and Now")
       end
     end
 
     it "should return the upcoming movies" do
       VCR.use_cassette 'movie/return_upcoming_movie' do
-        @movie.upcoming.should be_true
+        @movie.upcoming_movies.first.title.should eq("Cabin Fever: Patient Zero")
       end
     end
 
     it "should show movies that are now playing" do
       VCR.use_cassette 'movie/now_playing' do
-        @movie.now_playing.should be_true
+        @movie.now_playing_movies.first.title.should eq("RoboCop")
       end
     end
 
     it "should return popular movies" do
       VCR.use_cassette 'movie/popular' do
-        @movie.popular.should be_true
+        @movie.popular_movies.first.title.should eq("RoboCop")
       end
     end
 
     it "should return top rated movies" do
       VCR.use_cassette 'movie/top_rated' do
-        @movie.top_rated.should be_true
+        @movie.top_rated_movies.last.title.should eq("Band of Brothers")
       end
     end
 
     it "should return alternative titles for an ID" do
       VCR.use_cassette 'movie/alternative_titles_for_id' do
-        @movie.alternative_titles(5).should be_true
+        @movie.alternative_titles(5).first.title.should eq("Four Rooms and a Hotel (Working Title)")
       end
     end
 
     it "should return cast information for an ID" do
       VCR.use_cassette 'movie/cast_information_for_id' do
-        @movie.casts(5).should be_true
+        @movie.casts(5).first.name.should eq("Sammi Davis")
       end
     end
 
     it "should return crew for an ID" do
       VCR.use_cassette 'movie/crew_for_id' do
-        @movie.crew(5).should be_true
+        @movie.crew(5).first.name.should eq("Combustible Edison")
       end
     end
 
     it "should return keywords for an ID" do
       VCR.use_cassette 'movie/keywords_for_id' do
-        @movie.keywords(5).should be_true
+        @movie.keywords(5).first.name.should eq("los angeles")
       end
     end
 
     it "should return releases for an ID" do
       VCR.use_cassette 'movie/releases_for_id' do
-        @movie.releases(5).should be_true
+        @movie.releases(5).first.certification.should eq("R")
       end
     end
 
-    it "should return trailers for an ID" do
-      VCR.use_cassette 'movie/trailers_for_id' do
-        @movie.trailers(5).should be_true
+    it "should return youtube trailers for an ID" do
+      VCR.use_cassette 'movie/youtube_trailers_for_id' do
+        @movie.youtube_trailers(5).first.name.should eq("Trailer 1")
+      end
+    end
+
+    it "should return quicktime trailers for an ID" do
+      VCR.use_cassette 'movie/quicktime_trailers_for_id' do
+        @movie.quicktime_trailers(5).should eq([])
       end
     end
 
     it "should return translations for an ID" do
       VCR.use_cassette 'movie/translations_for_id' do
-        @movie.translations(5).should be_true
+        @movie.translations(5).first.name.should eq("English")
       end
     end
 
     it "should return similar_movies for an ID" do
       VCR.use_cassette 'movie/similar_for_id' do
-        @movie.similar_movies(5).should be_true
+        @movie.similar_movies(5).first.title.should eq("Suite Dreams")
       end
     end
 
     it "should return the list the movie belongs to" do
       VCR.use_cassette 'movie/movie_belongs_for_id' do
-        @movie.lists(5).should be_true
+        @movie.lists(5).first.name.should eq("My favourite movies.")
       end
     end
 
     it "should return the changes made" do
       VCR.use_cassette 'movie/changes_made' do
-        @movie.changes(5).should be_true
+        @movie.changes(5).should eq([])
       end
     end
 
     it "should return credits for an ID" do
       VCR.use_cassette 'movie/credits_for_id' do
-        @movie.credits(5).should be_true
+        @movie.credits(5).first.character.should eq("Jezebel")
       end
     end
   end
@@ -140,7 +146,7 @@ describe Tmdb::Movie do
     end
 
     it "should return a belongs_to_collection" do
-      @movie.belongs_to_collection.should == {"id"=>51845, "name"=>"DC Universe Animated Original Movies", "poster_path"=>"/qB1Qe5qIbHvr3NsH9xKwCi6WHMn.jpg", "backdrop_path"=>"/3DMJMsy8Yo1LjgFckXIAnHgLo9O.jpg"}
+      @movie.belongs_to_collection.should == nil
     end
 
     it "should return a budget" do
@@ -148,7 +154,7 @@ describe Tmdb::Movie do
     end
 
     it "should return genres" do
-      @movie.genres.should == [{"id"=>28, "name"=>"Action"}, {"id"=>12, "name"=>"Adventure"}, {"id"=>16, "name"=>"Animation"}]
+      @movie.genres.first.name.should == "Action"
     end
 
     it "should return homepage" do
@@ -168,7 +174,7 @@ describe Tmdb::Movie do
     end
 
     it "should return popularity" do
-      @movie.popularity.should == 1.15974723131612
+      @movie.popularity.should == 0.886812310502977
     end
 
     it "should return poster_path" do
@@ -176,11 +182,11 @@ describe Tmdb::Movie do
     end
 
     it "should return production_companies" do
-      @movie.production_companies.should == [{"name"=>"DC Comics", "id"=>429}, {"name"=>"Warner Premiere", "id"=>4811}]
+      @movie.production_companies.first.name.should == "DC Comics"
     end
 
     it "should return production_countries" do
-      @movie.production_countries.should == [{"iso_3166_1"=>"US", "name"=>"United States of America"}]
+      @movie.production_countries.first.name.should == "United States of America"
     end
 
     it "should return release_date" do
@@ -196,7 +202,7 @@ describe Tmdb::Movie do
     end
 
     it "should return spoken_languages" do
-      @movie.spoken_languages.should == [{"iso_639_1"=>"en", "name"=>"English"}]
+      @movie.spoken_languages.first.name.should == "English"
     end
 
     it "should return status" do
@@ -204,11 +210,11 @@ describe Tmdb::Movie do
     end
 
     it "should return vote_average" do
-      @movie.vote_average.should == 7.4
+      @movie.vote_average.should == 7.3
     end
 
     it "should return vote_count" do
-      @movie.vote_count.should == 23
+      @movie.vote_count.should == 26
     end
   end
 
@@ -222,56 +228,56 @@ describe Tmdb::Movie do
     end
 
     it 'should return alternative_titles' do
-      @movie.alternative_titles['titles'].size.should == 4
-      @movie.alternative_titles['titles'].first['title'].should == 'Superman und Batman Public Enemies'
+      @movie.alternative_titles.titles.length.should eq(4)
+      @movie.alternative_titles.titles.first.title.should == 'Superman und Batman Public Enemies'
     end
 
     it 'should return credits' do
-      @movie.credits['cast'].size.should == 20
-      @movie.credits['cast'].first['id'].should == 34947
-      @movie.credits['crew'].size.should == 3
-      @movie.credits['crew'].first['id'].should == 90367
+      @movie.credits.cast.length.should eq(20)
+      @movie.credits.cast.first.id.should eq(34947)
+      @movie.credits.crew.length.should eq(3)
+      @movie.credits.crew.first.id.should eq(90367)
     end
 
     it 'should return images' do
-      @movie.images['backdrops'].size.should == 6
-      @movie.images['backdrops'].first['file_path'].should == '/mXuqM7ksHW1AJ30AInwJvJTAwut.jpg'
-      @movie.images['posters'].size.should == 9
-      @movie.images['posters'].first['file_path'].should == '/7eaHkUKAzfstt6XQCiXyuKiZUAw.jpg'
+      @movie.images.backdrops.length.should eq(7)
+      @movie.images.backdrops.first.file_path.should eq('/mXuqM7ksHW1AJ30AInwJvJTAwut.jpg')
+      @movie.images.posters.length.should eq(10)
+      @movie.images.posters.first.file_path.should eq('/7eaHkUKAzfstt6XQCiXyuKiZUAw.jpg')
     end
 
     it 'should return keywords' do
-      @movie.keywords['keywords'].size.should == 2
-      @movie.keywords['keywords'].first['id'].should == 9715
+      @movie.keywords.keywords.size.should == 2
+      @movie.keywords.keywords.first.id.should == 9715
     end
 
     it 'should return releases' do
-      @movie.releases['countries'].size.should == 1
-      @movie.releases['countries'].first['release_date'].should == '2009-09-29'
+      @movie.releases.countries.size.should == 1
+      @movie.releases.countries.first.release_date.should == '2009-09-29'
     end
 
     it 'should return trailers' do
-      @movie.trailers['quicktime'].should == []
-      @movie.trailers['youtube'].size.should == 1
-      @movie.trailers['youtube'].first['name'].should == 'Official Preview Trailer'
+      @movie.trailers.quicktime.should == []
+      @movie.trailers.youtube.size.should == 1
+      @movie.trailers.youtube.first.name.should == 'Official Preview Trailer'
     end
 
     it 'should return translations' do
-      @movie.translations['translations'].size.should == 13
-      @movie.translations['translations'].first['name'].should == 'English'
+      @movie.translations.translations.size.should == 13
+      @movie.translations.translations.first.name.should == 'English'
     end
 
     it 'should return reviews' do
-      @movie.reviews['results'].should == []
+      @movie.reviews.results.should == []
     end
 
     it 'should return lists' do
-      @movie.lists['results'].size.should == 4
-      @movie.lists['results'].first['id'].should == '51d6b52219c295172912ff1e'
+      @movie.lists.results.size.should == 4
+      @movie.lists.results.first.id.should == '5231edfbe24fab4d4472b452'
     end
 
     it 'should return changes' do
-      @movie.changes['changes'].should == []
+      @movie.changes.changes.should == []
     end
   end
 
@@ -284,11 +290,11 @@ describe Tmdb::Movie do
     end
 
     it "should return backdrops" do
-      @movie['backdrops'].length == 4
+      @movie.backdrops.length.should eq(7)
     end
 
     it "should return posters" do
-      @movie['posters'].should be_true
+      @movie.posters.length.should eq(10)
     end
 
   end

@@ -38,7 +38,7 @@ module Tmdb
       :lists,
       :changes
     ]
-    
+
     @@fields.each do |field|
       attr_accessor field
     end
@@ -46,115 +46,121 @@ module Tmdb
     #Get the latest movie id. singular
     def self.latest
       search = Tmdb::Search.new("/movie/latest")
-      search.fetch_response
+      Dish(search.fetch_response)
     end
 
     #Get the list of upcoming movies. This list refreshes every day. The maximum number of items this list will include is 100.
-    def self.upcoming
+    def self.upcoming_movies
       search = Tmdb::Search.new("/movie/upcoming")
-      search.fetch
+      Dish(search.fetch)
     end
 
     #Get the list of movies playing in theatres. This list refreshes every day. The maximum number of items this list will include is 100.
-    def self.now_playing
+    def self.now_playing_movies
       search = Tmdb::Search.new("/movie/now_playing")
-      search.fetch
+      Dish(search.fetch)
     end
 
     #Get the list of popular movies on The Movie Database. This list refreshes every day.
-    def self.popular
+    def self.popular_movies
       search = Tmdb::Search.new("/movie/popular")
-      search.fetch
+      Dish(search.fetch)
     end
 
     #Get the list of top rated movies. By default, this list will only include movies that have 10 or more votes. This list refreshes every day.
-    def self.top_rated
+    def self.top_rated_movies
       search = Tmdb::Search.new("/movie/top_rated")
-      search.fetch
+      Dish(search.fetch)
     end
 
     #Discover movies by different types of data like average rating, number of votes, genres and certifications.
     def self.discover(conditions={})
       search = Tmdb::Search.new("/discover/movie")
       search.filter(conditions)
-      search.fetch
+      Dish(search.fetch)
     end
 
     #Get the alternative titles for a specific movie id.
     def self.alternative_titles(id, conditions={})
       search = Tmdb::Search.new("/#{self.endpoints[:singular]}/#{self.endpoint_id + id.to_s}/alternative_titles")
-      search.fetch_response
+      Dish(search.fetch_response).titles
     end
 
     #Get the cast information for a specific movie id.
     def self.casts(id, conditions={})
       search = Tmdb::Search.new("/#{self.endpoints[:singular]}/#{self.endpoint_id + id.to_s}/casts")
-      search.fetch_response['cast']
+      Dish(search.fetch_response['cast'])
     end
 
     #Get the cast information for a specific movie id.
     def self.crew(id, conditions={})
       search = Tmdb::Search.new("/#{self.endpoints[:singular]}/#{self.endpoint_id + id.to_s}/casts")
-      search.fetch_response['crew']
+      Dish(search.fetch_response['crew'])
     end
 
     #Get the images (posters and backdrops) for a specific movie id.
     def self.images(id, conditions={})
       search = Tmdb::Search.new("/#{self.endpoints[:singular]}/#{self.endpoint_id + id.to_s}/images")
-      search.fetch_response
+      Dish(search.fetch_response)
     end
 
     #Get the plot keywords for a specific movie id.
     def self.keywords(id, conditions={})
       search = Tmdb::Search.new("/#{self.endpoints[:singular]}/#{self.endpoint_id + id.to_s}/keywords")
-      search.fetch_response
+      Dish(search.fetch_response).keywords
     end
 
     #Get the release date by country for a specific movie id.
     def self.releases(id, conditions={})
       search = Tmdb::Search.new("/#{self.endpoints[:singular]}/#{self.endpoint_id + id.to_s}/releases")
-      search.fetch_response
+      Dish(search.fetch_response).countries
     end
 
-    #Get the trailers for a specific movie id.
-    def self.trailers(id, conditions={})
+    #Get the youtube trailers for a specific movie id.
+    def self.youtube_trailers(id, conditions={})
       search = Tmdb::Search.new("/#{self.endpoints[:singular]}/#{self.endpoint_id + id.to_s}/trailers")
-      search.fetch_response
+      Dish(search.fetch_response).youtube
+    end
+
+    #Get the quicktime trailers for a specific movie id.
+    def self.quicktime_trailers(id, conditions={})
+      search = Tmdb::Search.new("/#{self.endpoints[:singular]}/#{self.endpoint_id + id.to_s}/trailers")
+      Dish(search.fetch_response).quicktime
     end
 
     #Get the translations for a specific movie id.
     def self.translations(id, conditions={})
       search = Tmdb::Search.new("/#{self.endpoints[:singular]}/#{self.endpoint_id + id.to_s}/translations")
-      search.fetch_response
+      Dish(search.fetch_response).translations
     end
-    
+
     #Get the similar movies for a specific movie id.
     def self.similar_movies(id, conditions={})
       search = Tmdb::Search.new("/#{self.endpoints[:singular]}/#{self.endpoint_id + id.to_s}/similar_movies")
       search.filter(conditions)
-      search.fetch_response['results']
+      Dish(search.fetch)
     end
 
     #Get the lists that the movie belongs to.
     def self.lists(id, conditions={})
       search = Tmdb::Search.new("/#{self.endpoints[:singular]}/#{self.endpoint_id + id.to_s}/lists")
-      search.fetch_response
+      Dish(search.fetch)
     end
 
     #Get the changes for a specific movie id.
-    #Changes are grouped by key, and ordered by date in descending order. 
-    #By default, only the last 24 hours of changes are returned. 
-    #The maximum number of days that can be returned in a single request is 14. 
+    #Changes are grouped by key, and ordered by date in descending order.
+    #By default, only the last 24 hours of changes are returned.
+    #The maximum number of days that can be returned in a single request is 14.
     #The language is present on fields that are translatable.
     def self.changes(id, conditions={})
       search = Tmdb::Search.new("/#{self.endpoints[:singular]}/#{self.endpoint_id + id.to_s}/changes")
-      search.fetch_response
+      Dish(search.fetch_response).changes
     end
 
     #Get the credits for a specific movie id.
     def self.credits(id, conditions={})
       search = Tmdb::Search.new("/#{self.endpoints[:singular]}/#{self.endpoint_id + id.to_s}/credits")
-      search.fetch_response
+      Dish(search.fetch_response).cast
     end
 
   end

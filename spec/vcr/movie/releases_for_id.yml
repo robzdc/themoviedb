@@ -7,9 +7,9 @@ http_interactions:
       encoding: US-ASCII
       string: ''
     headers:
-      Content-Type:
-      - application/json
       Accept:
+      - application/json
+      Content-Type:
       - application/json
   response:
     status:
@@ -18,43 +18,33 @@ http_interactions:
     headers:
       Access-Control-Allow-Origin:
       - '*'
-      Age:
-      - '0'
       Cache-Control:
-      - public, max-age=86402
+      - public, max-age=21600
       Content-Type:
       - application/json;charset=utf-8
       Date:
-      - Fri, 20 Sep 2013 14:34:52 GMT
+      - Fri, 14 Feb 2014 09:13:09 GMT
       Etag:
-      - '"68b03caf6e4b368071ecf0ecb87cabf3"'
+      - '"1e63c00226abc67f61bdf5f8dc3286d5"'
       Server:
       - nginx
       Status:
       - 200 OK
-      Via:
-      - 1.1 varnish
-      X-Cache:
-      - MISS
       X-Memc:
       - HIT
       X-Memc-Age:
-      - '20257'
+      - '11629'
       X-Memc-Expires:
-      - '66145'
+      - '9971'
       X-Memc-Key:
       - 07994aba3d89059b5fe91124ff8b2ffa
-      X-Varnish:
-      - '1297659075'
-      X-Varnish-Sid:
-      - tm-v-p-1100
       Content-Length:
-      - '365'
+      - '295'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"id":5,"countries":[{"iso_3166_1":"US","certification":"R","release_date":"1995-12-25"},{"iso_3166_1":"DE","certification":"16","release_date":"1996-02-29"},{"iso_3166_1":"CZ","certification":"","release_date":"1997-07-31"},{"iso_3166_1":"GB","certification":"18","release_date":"1995-12-26"},{"iso_3166_1":"CA","certification":"14A","release_date":"1995-09-15"}]}'
+      string: '{"id":5,"countries":[{"iso_3166_1":"US","certification":"R","release_date":"1995-12-25"},{"iso_3166_1":"DE","certification":"16","release_date":"1996-02-29"},{"iso_3166_1":"CZ","certification":"","release_date":"1997-07-31"},{"iso_3166_1":"GB","certification":"18","release_date":"1995-12-26"}]}'
     http_version: 
-  recorded_at: Fri, 20 Sep 2013 14:34:52 GMT
+  recorded_at: Fri, 14 Feb 2014 09:13:10 GMT
 recorded_with: VCR 2.5.0

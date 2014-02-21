@@ -436,6 +436,20 @@ Get a list of all jobs.
 Tmdb::Job.list
 ```
 
+## Changelog
+1.0.0 changes
+
+* Hashes no longer used thanks to Dish Gem
+* Movie.upcoming renamed to Movie.upcoming_movies (Returns an Array)
+* Movie.now_playing renamed to Movie.now_playing_movies (Returns an Array)
+* Movie.popular renamed to Movie.popular_movies (Returns an Array)
+* Movie.top_rated renamed to Movie.top_rated_movies (Returns an Array)
+* Movie.keywords(id) now returns an Array
+* Movie.alternative_titles(id) now returns an Array
+* Movie.releases(id) now returns an Array
+* Movie.trailers(id) removed for Movie.youtube_trailer and Movie.quicktime_trailers both returning Arrays
+* Movie.translations(id) now returns an Array
+* Movie.credits(id) now returns an Array
 ## License
 
 themoviedb - A ruby wrapper for the movie database API

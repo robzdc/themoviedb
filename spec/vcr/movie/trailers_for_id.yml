@@ -7,9 +7,9 @@ http_interactions:
       encoding: US-ASCII
       string: ''
     headers:
-      Content-Type:
-      - application/json
       Accept:
+      - application/json
+      Content-Type:
       - application/json
   response:
     status:
@@ -18,43 +18,34 @@ http_interactions:
     headers:
       Access-Control-Allow-Origin:
       - '*'
-      Age:
-      - '0'
       Cache-Control:
-      - public, max-age=86402
+      - public, max-age=21600
       Content-Type:
       - application/json;charset=utf-8
       Date:
-      - Fri, 20 Sep 2013 14:34:52 GMT
+      - Fri, 14 Feb 2014 09:13:10 GMT
       Etag:
-      - '"fa273f670e8ea5eb602f330228571526"'
+      - '"04fdcd3cc13af496b93938341b895979"'
       Server:
       - nginx
       Status:
       - 200 OK
-      Via:
-      - 1.1 varnish
-      X-Cache:
-      - MISS
       X-Memc:
       - HIT
       X-Memc-Age:
-      - '15497'
+      - '6804'
       X-Memc-Expires:
-      - '70905'
+      - '14796'
       X-Memc-Key:
       - e25f2806e5038cfa9e02eed0c6e629a5
-      X-Varnish:
-      - '1297659164'
-      X-Varnish-Sid:
-      - tm-v-p-1100
       Content-Length:
-      - '97'
+      - '187'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"id":5,"quicktime":[],"youtube":[{"name":"Trailer 1","size":"Standard","source":"Rieq_TR7cV0"}]}'
+      string: '{"id":5,"quicktime":[],"youtube":[{"name":"Trailer 1","size":"Standard","source":"Rieq_TR7cV0","type":"Trailer"},{"name":"Trailer
+        2","size":"HQ","source":"S_Pd2pGkq54","type":"Trailer"}]}'
     http_version: 
-  recorded_at: Fri, 20 Sep 2013 14:34:52 GMT
+  recorded_at: Fri, 14 Feb 2014 09:13:11 GMT
 recorded_with: VCR 2.5.0

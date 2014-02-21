@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'httparty'
+require 'dish/ext'
 
 ["api", "search", "resource", "configuration"].each do |inc|
   require File.join(File.dirname(__FILE__), "themoviedb", inc)
