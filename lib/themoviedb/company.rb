@@ -12,7 +12,7 @@ module Tmdb
       :name,
       :parent_company
     ]
-    
+
     @@fields.each do |field|
       attr_accessor field
     end
@@ -20,7 +20,7 @@ module Tmdb
     #Get the list of movies associated with a particular company.
     def self.movies(id, conditions={})
       search = Tmdb::Search.new("/#{self.endpoints[:singular]}/#{self.endpoint_id + id.to_s}/movies")
-      search.fetch
+      Dish(search.fetch)
     end
 
   end

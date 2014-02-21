@@ -28,25 +28,25 @@ module Tmdb
     #Get the list of popular people on The Movie Database. This list refreshes every day.
     def self.popular
       search = Tmdb::Search.new("/#{self.endpoints[:singular]}/popular")
-      search.fetch
+      Dish(search.fetch)
     end
 
     #Get the latest person id.
     def self.latest
       search = Tmdb::Search.new("/#{self.endpoints[:singular]}/latest")
-      search.fetch_response
+      Dish(search.fetch_response)
     end
 
     #Get the credits for a specific person id.
     def self.credits(id, conditions={})
       search = Tmdb::Search.new("/#{self.endpoints[:singular]}/#{self.endpoint_id + id.to_s}/credits")
-      search.fetch_response
+      Dish(search.fetch_response)
     end
 
     #Get the images for a specific person id.
     def self.images(id, conditions={})
       search = Tmdb::Search.new("/#{self.endpoints[:singular]}/#{self.endpoint_id + id.to_s}/images")
-      search.fetch_response
+      Dish(search.fetch_response)
     end
 
     #Get the changes for a specific person id.
@@ -55,7 +55,7 @@ module Tmdb
     #The maximum number of days that can be returned in a single request is 14. The language is present on fields that are translatable.
     def self.changes(id, conditions={})
       search = Tmdb::Search.new("/#{self.endpoints[:singular]}/#{self.endpoint_id + id.to_s}/changes")
-      search.fetch_response
+      Dish(search.fetch_response)
     end
 
   end

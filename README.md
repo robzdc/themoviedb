@@ -450,6 +450,10 @@ Tmdb::Job.list
 * Movie.trailers(id) removed for Movie.youtube_trailer and Movie.quicktime_trailers both returning Arrays
 * Movie.translations(id) now returns an Array
 * Movie.credits(id) now returns an Array
+
+TODO: Need better Dish intergration with Detail, list and search
+Stuff like ``@movie.translations.translations`` should just be ``@movie.translations``
+
 ## License
 
 themoviedb - A ruby wrapper for the movie database API

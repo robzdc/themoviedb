@@ -48,7 +48,7 @@ describe Tmdb::Movie do
 
     it "should return top rated movies" do
       VCR.use_cassette 'movie/top_rated' do
-        @movie.top_rated_movies.last.title.should eq("Band of Brothers")
+        @movie.top_rated_movies.last.title.should eq("12 Angry Men")
       end
     end
 
@@ -120,7 +120,7 @@ describe Tmdb::Movie do
 
     it "should return credits for an ID" do
       VCR.use_cassette 'movie/credits_for_id' do
-        @movie.credits(5).first.character.should eq("Jezebel")
+        @movie.credits(5).first.character.should eq("Chester Rush")
       end
     end
   end
