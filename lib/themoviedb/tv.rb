@@ -28,7 +28,13 @@ module Tmdb
       :vote_average,
       :vote_count,
       :credits,
-      :external_ids
+      :external_ids,
+      :changes,
+      :page,
+      :total_pages,
+      :total_results,
+      :start_date,
+      :end_date
     ]
 
     @@fields.each do |field|
@@ -78,5 +84,14 @@ module Tmdb
       search.fetch_response
     end
 
+    def self.changes(id=nil, conditions={})
+      if id.present?
+        search = Tmdb::Search.new("/#{self.endpoints[:singular]}/#{self.endpoint_id + id.to_s}/changes")
+      else
+        search = Tmdb::Search.new("/tv/changes")
+        search.filter(conditions)
+      end
+      search.fetch_response
+    end
   end
 end
