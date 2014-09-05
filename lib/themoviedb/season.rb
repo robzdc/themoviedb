@@ -14,6 +14,7 @@ module Tmdb
       :external_ids,
       :images,
       :videos,
+      :changes,
       :page,
       :total_pages,
       :total_results,
