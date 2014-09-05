@@ -2,6 +2,29 @@ module Tmdb
   class Season < Resource
     has_resource 'season', :plural => 'seasons'
 
+    @@fields = [
+      :air_date,
+      :episodes,
+      :name,
+      :overview,
+      :id,
+      :poster_path,
+      :season_number,
+      :credits,
+      :external_ids,
+      :images,
+      :videos,
+      :page,
+      :total_pages,
+      :total_results,
+      :start_date,
+      :end_date
+    ]
+
+    @@fields.each do |field|
+      attr_accessor field
+    end
+
     #Get the primary information about a TV season by its season number.
     def self.detail(id, season, conditions={})
       search = Tmdb::Search.new("/tv/#{self.endpoint_id + id.to_s}/#{self.endpoints[:singular]}/#{self.endpoint_id + season.to_s}")
