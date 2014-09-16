@@ -41,6 +41,12 @@ module Tmdb
       attr_accessor field
     end
 
+    #Get the latest movie id. singular
+    def self.latest
+      search = Tmdb::Search.new("/tv/latest")
+      search.fetch_response
+    end
+
     #Get the list of popular TV shows. This list refreshes every day.
     def self.popular
       search = Tmdb::Search.new("/tv/popular")
