@@ -57,5 +57,11 @@ module Tmdb
       search.fetch_response
     end
 
+    #Get the videos (teasers etc) that we have stored for a TV season by season number.
+    def self.videos(id, season, conditions={})
+      search = Tmdb::Search.new("/tv/#{self.endpoint_id + id.to_s}/#{self.endpoints[:singular]}/#{self.endpoint_id + season.to_s}/videos")
+      search.fetch_response
+    end
+
   end
 end
