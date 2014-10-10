@@ -90,6 +90,12 @@ module Tmdb
       search.fetch_response
     end
 
+    #Get the videos (trailers etc) for a TV series.
+    def self.videos(id, conditions={})
+      search = Tmdb::Search.new("/#{self.endpoints[:singular]}/#{self.endpoint_id + id.to_s}/videos")
+      search.fetch_response
+    end
+
     def self.changes(id=nil, conditions={})
       if id.present?
         search = Tmdb::Search.new("/#{self.endpoints[:singular]}/#{self.endpoint_id + id.to_s}/changes")
