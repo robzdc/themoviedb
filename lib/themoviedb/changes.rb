@@ -9,7 +9,7 @@ module Tmdb
     end
 
     #Get changes of persons
-    def self.tv(conditions={})
+    def self.person(conditions={})
       search = Tmdb::Search.new("/person/changes")
       search.filter(conditions)
       search.fetch_response
