@@ -276,6 +276,56 @@ describe Tmdb::TV do
 
   end
 
+  describe "For on the air TV shows" do
+
+    before(:each) do
+      VCR.use_cassette 'tv/on_the_air' do
+        @tv = Tmdb::TV.on_the_air
+      end
+    end
+
+    it "should return an array" do
+      @tv.class.should == Array
+    end
+
+    it "each show should return an id" do
+      @tv.first.id.should == 62822
+    end
+
+    it "each show should return an name" do
+      @tv.first.name.should == "Humans"
+    end
+
+    it "each show should return an original name" do
+      @tv.first.original_name.should == "Humans"
+    end
+
+    it "each show should return an popularity" do
+      @tv.first.popularity.should == 16.5167252220739
+    end
+
+    it "each show should return an poster_path" do
+      @tv.first.poster_path.should == "/gJCyS65ieDT827F2NR9Nx9ZLuw5.jpg"
+    end
+
+    it "each show should return an vote_average" do
+      @tv.first.vote_average.should == 7.5
+    end
+
+    it "each show should return an vote_count" do
+      @tv.first.vote_count.should == 16
+    end
+
+    it "each show should return an backdrop" do
+      @tv.first.backdrop_path.should == "98MkbBwdbw9xfmxJlYlBWqu6xZZ.jpg"
+    end
+
+    it "each show should return an first air date" do
+      @tv.first.first_air_date.should == "2015-06-14"
+    end
+
+  end
+
   describe "For a TV shows images" do
 
     describe "For backdrops" do
